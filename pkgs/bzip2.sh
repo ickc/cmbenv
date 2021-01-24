@@ -5,10 +5,11 @@ pkgopts=$@
 cleanup=""
 
 # NOTE:  change URL when changing version
-version=1.0.6
+versionFull=1.0.6-8
+version="${versionFull%%-*}"
 
 pfile=bzip2_${version}.orig.tar.bz2
-src=$(eval "@TOP_DIR@/tools/fetch_check.sh" https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/bzip2/${version}-8/${pfile} ${pfile})
+src=$(eval "@TOP_DIR@/tools/fetch_check.sh" https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/bzip2/${versionFull}/${pfile} ${pfile})
 
 if [ "x${src}" = "x" ]; then
     echo "Failed to fetch ${pkg}" >&2

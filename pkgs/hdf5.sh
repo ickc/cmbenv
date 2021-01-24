@@ -4,10 +4,11 @@ pkg="hdf5"
 pkgopts=$@
 cleanup=""
 
-version=1.10.6
+version=1.12.0
+versionShort="${version%.*}"
 
 pfile=hdf5-${version}.tar.bz2
-src=$(eval "@TOP_DIR@/tools/fetch_check.sh" https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-${version}/src/${pfile} ${pfile})
+src=$(eval "@TOP_DIR@/tools/fetch_check.sh" https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-${versionShort}/hdf5-${version}/src/${pfile} ${pfile})
 
 if [ "x${src}" = "x" ]; then
     echo "Failed to fetch ${pkg}" >&2

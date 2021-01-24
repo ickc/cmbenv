@@ -4,11 +4,10 @@ pkg="boost"
 pkgopts=$@
 cleanup=""
 
-# NOTE:  change URL when changing version.
-version=1_72_0
+version=1_75_0
 
 pfile=boost_${version}.tar.bz2
-src=$(eval "@TOP_DIR@/tools/fetch_check.sh" https://dl.bintray.com/boostorg/release/1.72.0/source/${pfile} ${pfile})
+src=$(eval "@TOP_DIR@/tools/fetch_check.sh" https://dl.bintray.com/boostorg/release/${version//_/.}/source/${pfile} ${pfile})
 
 if [ "x${src}" = "x" ]; then
     echo "Failed to fetch ${pkg}" >&2
